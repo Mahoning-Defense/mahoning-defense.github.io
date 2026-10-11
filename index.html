@@ -128,7 +128,29 @@
             .app-canvas {
                 max-height: 100%;
                 border-radius: 16px;
-                padding: 20px 24px;
+                padding: 16px 20px;
+            }
+            .emblem-wrapper {
+                width: 64px;
+                height: 64px;
+                margin-bottom: 12px;
+            }
+            .brand-title {
+                font-size: 1.5rem;
+                margin-bottom: 4px;
+            }
+            .brand-location {
+                margin-bottom: 12px;
+            }
+            .status-pill {
+                margin-bottom: 12px;
+            }
+            .splash-desc {
+                margin-bottom: 14px;
+                font-size: 0.9rem;
+            }
+            .capabilities-strip {
+                margin-bottom: 14px;
             }
         }
 
@@ -141,10 +163,25 @@
                 max-height: 100%;
                 border-radius: 0;
                 border: none;
-                padding: 24px 16px;
+                padding: 20px 16px;
+            }
+            .brand-title {
+                font-size: 1.55rem;
             }
             .contact-box {
-                padding: 18px 16px;
+                padding: 16px 14px;
+            }
+            .capabilities-strip {
+                margin-bottom: 16px;
+                gap: 6px;
+            }
+            .cap-pill {
+                font-size: 0.68rem;
+                padding: 4px 10px;
+            }
+            .compliance-row {
+                font-size: 0.62rem;
+                gap: 4px 8px;
             }
         }
 
@@ -253,8 +290,31 @@
             font-size: 0.98rem;
             color: var(--text-muted);
             line-height: 1.6;
-            margin-bottom: 24px;
+            margin-bottom: 20px;
             max-width: 550px;
+        }
+
+        /* Core Capability Pillars */
+        .capabilities-strip {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+            width: 100%;
+        }
+
+        .cap-pill {
+            font-size: 0.72rem;
+            font-weight: 600;
+            color: #94a3b8;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            padding: 5px 12px;
+            border-radius: 9999px;
+            letter-spacing: 0.02em;
+            white-space: nowrap;
         }
 
         /* Action / Contact Card */
@@ -339,6 +399,24 @@
             display: flex;
             flex-direction: column;
             gap: 3px;
+        }
+
+        .compliance-row {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px 10px;
+            flex-wrap: wrap;
+            font-size: 0.68rem;
+            font-weight: 600;
+            color: #94a3b8;
+            margin-bottom: 5px;
+            letter-spacing: 0.02em;
+        }
+
+        .compliance-sep {
+            color: var(--text-dim);
+            opacity: 0.5;
         }
 
         /* Foolproof Email Modal */
@@ -665,6 +743,13 @@
                     Our government procurement portal and defense hardware supply operations are currently being configured for production rollout.
                 </p>
 
+                <!-- Core Capabilities Strip -->
+                <div class="capabilities-strip">
+                    <span class="cap-pill">Aerospace &amp; Naval Hardware</span>
+                    <span class="cap-pill">MIL-STD Packaging &amp; MSL</span>
+                    <span class="cap-pill">Defense Sourcing</span>
+                </div>
+
                 <!-- Official Contact Box -->
                 <div class="contact-box">
                     <div class="contact-box-title">Procurement &amp; Solicitations Desk</div>
@@ -683,6 +768,13 @@
 
             <!-- FOOTER -->
             <footer class="footer">
+                <div class="compliance-row">
+                    <span>Small Business Set-Aside Eligible</span>
+                    <span class="compliance-sep">•</span>
+                    <span>Domestic &amp; BAA Compliant Sourcing</span>
+                    <span class="compliance-sep">•</span>
+                    <span>FAR / DFARS Protocols</span>
+                </div>
                 <div>© 2026 Mahoning Defense Supply LLC. All Rights Reserved.</div>
                 <div>Campbell, OH 44405 • Sourcing &amp; Procurement Operations</div>
             </footer>
