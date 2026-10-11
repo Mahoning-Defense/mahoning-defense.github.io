@@ -212,23 +212,6 @@
             flex-shrink: 0;
         }
 
-        .pulse-beacon {
-            position: absolute;
-            top: -3px;
-            right: -3px;
-            width: 10px;
-            height: 10px;
-            border-radius: 50%;
-            background: var(--accent-emerald);
-            box-shadow: 0 0 8px var(--accent-emerald);
-            animation: pulse 2s infinite;
-        }
-
-        @keyframes pulse {
-            0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7); }
-            70% { transform: scale(1.1); box-shadow: 0 0 0 6px rgba(16, 185, 129, 0); }
-            100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
-        }
 
         .brand-title {
             font-size: 1.75rem;
@@ -585,9 +568,68 @@
             transform: translateX(-50%) translateY(0);
             opacity: 1;
         }
+
+        /* Mobile Pull-to-Refresh Indicator */
+        .pull-indicator {
+            position: fixed;
+            top: -60px;
+            left: 50%;
+            transform: translateX(-50%) translateY(0);
+            background: rgba(12, 19, 34, 0.96);
+            border: 1px solid var(--border-glow);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+            padding: 8px 18px;
+            border-radius: 9999px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.76rem;
+            font-weight: 700;
+            color: var(--accent-cyan);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.7), 0 0 20px rgba(37, 99, 235, 0.35);
+            pointer-events: none;
+            z-index: 3000;
+            opacity: 0;
+            transition: transform 0.12s ease-out, opacity 0.12s ease-out;
+        }
+
+        .pull-indicator.ready {
+            border-color: var(--accent-emerald);
+            color: #34d399;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.7), 0 0 20px rgba(16, 185, 129, 0.4);
+        }
+
+        .pull-indicator.ready .pull-spinner {
+            border-top-color: #34d399;
+        }
+
+        .pull-indicator.loading {
+            border-color: var(--primary-light);
+            color: #93c5fd;
+        }
+
+        .pull-spinner {
+            width: 14px;
+            height: 14px;
+            border: 2px solid rgba(56, 189, 248, 0.2);
+            border-top-color: var(--accent-cyan);
+            border-radius: 50%;
+            animation: spin 0.75s linear infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
     </style>
 </head>
 <body>
+
+    <!-- Mobile Pull-to-Refresh Indicator -->
+    <div class="pull-indicator" id="pullIndicator" aria-hidden="true">
+        <div class="pull-spinner"></div>
+        <span id="pullText">Pull to reload</span>
+    </div>
 
     <div class="viewport-wrapper">
         <div class="app-canvas">
@@ -603,7 +645,6 @@
                 
                 <!-- Glowing Shield Emblem -->
                 <div class="emblem-wrapper">
-                    <div class="pulse-beacon" title="Systems Active"></div>
                     <svg width="42" height="48" viewBox="0 0 28 32" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M14 1L26 6V15C26 23 19.5 28.5 14 31C8.5 28.5 2 23 2 15V6L14 1Z" fill="url(#shieldGrad)" stroke="#3b82f6" stroke-width="1.8"/>
                         <path d="M8 12L14 17L20 12M8 17L14 22L20 17" stroke="#93c5fd" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -824,6 +865,66 @@
                 copyText(email, 'Copied: ' + email);
             });
         });
+
+        // Mobile Swipe-Down Pull-to-Refresh
+        (function() {
+            var startY = 0;
+            var currentY = 0;
+            var isPulling = false;
+            var indicator = document.getElementById('pullIndicator');
+            var text = document.getElementById('pullText');
+            var threshold = 75;
+
+            window.addEventListener('touchstart', function(e) {
+                if (e.touches.length !== 1) return;
+                var modal = document.getElementById('emailModal');
+                if (modal && modal.classList.contains('active')) return;
+
+                startY = e.touches[0].clientY;
+                isPulling = true;
+            }, { passive: true });
+
+            window.addEventListener('touchmove', function(e) {
+                if (!isPulling || !indicator) return;
+                currentY = e.touches[0].clientY;
+                var diff = currentY - startY;
+
+                if (diff > 12) {
+                    var pullDist = Math.min(diff * 0.42, 85);
+                    indicator.style.transform = 'translateX(-50%) translateY(' + (pullDist + 60) + 'px)';
+                    indicator.style.opacity = Math.min(pullDist / 35, 1);
+
+                    if (pullDist >= threshold * 0.42) {
+                        indicator.classList.add('ready');
+                        if (text) text.textContent = 'Release to reload';
+                    } else {
+                        indicator.classList.remove('ready');
+                        if (text) text.textContent = 'Pull to reload';
+                    }
+                }
+            }, { passive: true });
+
+            window.addEventListener('touchend', function(e) {
+                if (!isPulling || !indicator) return;
+                isPulling = false;
+                var diff = currentY - startY;
+
+                if (diff * 0.42 >= threshold * 0.42) {
+                    indicator.classList.add('loading');
+                    indicator.style.transform = 'translateX(-50%) translateY(75px)';
+                    if (text) text.textContent = 'Reloading portal...';
+                    setTimeout(function() {
+                        window.location.reload();
+                    }, 350);
+                } else {
+                    indicator.style.transform = 'translateX(-50%) translateY(0)';
+                    indicator.style.opacity = '0';
+                    indicator.classList.remove('ready');
+                }
+                startY = 0;
+                currentY = 0;
+            }, { passive: true });
+        })();
 
         // Prevent Ctrl + Wheel / Trackpad pinch zoom
         window.addEventListener('wheel', function (e) {
