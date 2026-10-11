@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Logo Emblem Showcase | Mahoning Defense Supply</title>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;700&family=Plus+Jakarta+Sans:wght@500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --bg-base: #060a14;
+            --bg-card: #0c1322;
+            --border-subtle: rgba(255, 255, 255, 0.08);
+            --border-glow: rgba(59, 130, 246, 0.35);
+            --primary: #2563eb;
+            --primary-light: #60a5fa;
+            --accent-cyan: #38bdf8;
+            --accent-gold: #f59e0b;
+            --accent-emerald: #10b981;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --text-dim: #64748b;
+            --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+            --font-mono: 'JetBrains Mono', monospace;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: var(--font-sans);
+            background-color: var(--bg-base);
+            color: var(--text-main);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 32px 16px;
+            background-image: 
+                radial-gradient(ellipse 70% 50% at 50% 20%, rgba(37, 99, 235, 0.16), transparent 70%),
+                radial-gradient(circle at 50% 50%, rgba(12, 19, 34, 0.95), var(--bg-base));
+            position: relative;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            background-size: 32px 32px;
+            background-image: 
+                linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .header-title {
+            text-align: center;
+            margin-bottom: 24px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .header-title h1 {
+            font-size: 1.6rem;
+            font-weight: 900;
+            letter-spacing: -0.02em;
+            margin-bottom: 6px;
+        }
+
+        .header-title p {
+            font-size: 0.82rem;
+            color: var(--accent-cyan);
+            font-family: var(--font-mono);
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+        }
+
+        /* Selector Tabs */
+        .tabs-container {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-bottom: 28px;
+            position: relative;
+            z-index: 1;
+            max-width: 640px;
+        }
+
+        .tab-btn {
+            background: rgba(17, 26, 46, 0.85);
+            border: 1px solid var(--border-subtle);
+            color: var(--text-muted);
+            padding: 8px 16px;
+            border-radius: 9999px;
+            font-size: 0.78rem;
+            font-weight: 700;
+            font-family: inherit;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .tab-btn:hover {
+            color: #ffffff;
+            border-color: rgba(59, 130, 246, 0.5);
+            background: rgba(37, 99, 235, 0.15);
+        }
+
+        .tab-btn.active {
+            background: var(--primary);
+            color: #ffffff;
+            border-color: #60a5fa;
+            box-shadow: 0 0 15px rgba(37, 99, 235, 0.5);
+        }
+
+        /* Stage Canvas Preview */
+        .stage-canvas {
+            width: 100%;
+            max-width: 640px;
+            background: rgba(12, 19, 34, 0.92);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--border-subtle);
+            border-radius: 28px;
+            padding: 28px 32px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+            box-shadow: 
+                0 0 50px rgba(0, 0, 0, 0.8),
+                0 0 30px rgba(37, 99, 235, 0.15);
+            margin-bottom: 32px;
+        }
+
+        .emblem-wrapper {
+            margin-bottom: 18px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 78px;
+            height: 78px;
+            border-radius: 22px;
+            background: rgba(37, 99, 235, 0.12);
+            border: 1px solid rgba(59, 130, 246, 0.35);
+            box-shadow: 0 0 30px rgba(37, 99, 235, 0.35);
+            position: relative;
+            flex-shrink: 0;
+            transition: all 0.3s ease;
+        }
+
+        .pulse-beacon {
+            position: absolute;
+            top: -3px;
+            right: -3px;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: var(--accent-emerald);
+            box-shadow: 0 0 8px var(--accent-emerald);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7); }
+            70% { transform: scale(1.1); box-shadow: 0 0 0 6px rgba(16, 185, 129, 0); }
+            100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
+        }
+
+        .brand-title {
+            font-size: 1.75rem;
+            font-weight: 900;
+            letter-spacing: -0.02em;
+            color: #ffffff;
+            margin-bottom: 6px;
+            line-height: 1.15;
+        }
+
+        .brand-location {
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: var(--accent-cyan);
+            margin-bottom: 16px;
+        }
+
+        .concept-badge {
+            display: inline-block;
+            background: rgba(37, 99, 235, 0.2);
+            border: 1px solid rgba(59, 130, 246, 0.4);
+            color: #93c5fd;
+            padding: 4px 14px;
+            border-radius: 9999px;
+            font-size: 0.72rem;
+            font-weight: 700;
+            margin-bottom: 14px;
+            letter-spacing: 0.05em;
+        }
+
+        .concept-description {
+            font-size: 0.92rem;
+            color: var(--text-muted);
+            line-height: 1.55;
+            max-width: 520px;
+            margin-bottom: 20px;
+        }
+
+        /* 4 Grid Comparison Cards */
+        .grid-comparison {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 16px;
+            width: 100%;
+            max-width: 900px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .mini-card {
+            background: rgba(12, 19, 34, 0.85);
+            border: 1px solid var(--border-subtle);
+            border-radius: 20px;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .mini-card:hover {
+            border-color: rgba(59, 130, 246, 0.5);
+            transform: translateY(-2px);
+            background: rgba(17, 26, 46, 0.95);
+        }
+
+        .mini-card.active {
+            border-color: #3b82f6;
+            box-shadow: 0 0 25px rgba(37, 99, 235, 0.35);
+        }
+
+        .mini-card-title {
+            font-size: 0.95rem;
+            font-weight: 800;
+            color: #ffffff;
+            margin-top: 12px;
+            margin-bottom: 4px;
+        }
+
+        .mini-card-sub {
+            font-size: 0.74rem;
+            color: var(--accent-cyan);
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .mini-card-desc {
+            font-size: 0.75rem;
+            color: var(--text-dim);
+            line-height: 1.45;
+        }
+
+        .back-link {
+            margin-top: 28px;
+            color: var(--primary-light);
+            text-decoration: none;
+            font-size: 0.8rem;
+            font-weight: 700;
+            position: relative;
+            z-index: 1;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header-title">
+        <h1>Logo &amp; Emblem Showcase</h1>
+        <p>Mahoning Defense Supply LLC • Brand Exploration</p>
+    </div>
+
+    <!-- Interactive Tabs -->
+    <div class="tabs-container">
+        <button class="tab-btn active" onclick="selectConcept(0)">1. Defense Shield (Current)</button>
+        <button class="tab-btn" onclick="selectConcept(1)">2. Stealth Delta (Aerospace)</button>
+        <button class="tab-btn" onclick="selectConcept(2)">3. Monogram MD Aegis</button>
+        <button class="tab-btn" onclick="selectConcept(3)">4. Tactical Hex-Lock</button>
+        <button class="tab-btn" onclick="selectConcept(4)">5. Triple Chevron</button>
+    </div>
+
+    <!-- Live Preview Stage Canvas -->
+    <div class="stage-canvas">
+        <div class="emblem-wrapper" id="mainEmblemPod">
+            <div class="pulse-beacon" title="Systems Active"></div>
+            <div id="mainEmblemSvg">
+                <!-- Injected via JS -->
+            </div>
+        </div>
+
+        <h2 class="brand-title">Mahoning Defense Supply</h2>
+        <div class="brand-location">Campbell, Ohio • Mahoning County</div>
+
+        <span class="concept-badge" id="conceptBadge">CONCEPT 1 OF 5</span>
+        <p class="concept-description" id="conceptDesc">
+            The classic DoD protective crest with twin down-pointing tactical chevrons. Authoritative, protective, and unmistakably defense-grade.
+        </p>
+    </div>
+
+    <!-- All 5 Comparison Cards -->
+    <div class="grid-comparison">
+
+        <!-- Card 1 -->
+        <div class="mini-card active" onclick="selectConcept(0)" id="card-0">
+            <div class="emblem-wrapper" style="width: 64px; height: 64px; margin-bottom: 0;">
+                <svg width="34" height="38" viewBox="0 0 28 32" fill="none">
+                    <path d="M14 1L26 6V15C26 23 19.5 28.5 14 31C8.5 28.5 2 23 2 15V6L14 1Z" fill="#1d4ed8" stroke="#3b82f6" stroke-width="1.8"/>
+                    <path d="M8 12L14 17L20 12M8 17L14 22L20 17" stroke="#93c5fd" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </div>
+            <div class="mini-card-title">1. Defense Shield</div>
+            <div class="mini-card-sub">Current Baseline</div>
+            <div class="mini-card-desc">Military defense crest with chevrons. Trusted, established, and protective.</div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="mini-card" onclick="selectConcept(1)" id="card-1">
+            <div class="emblem-wrapper" style="width: 64px; height: 64px; margin-bottom: 0;">
+                <svg width="34" height="38" viewBox="0 0 28 32" fill="none">
+                    <path d="M14 2L26 27L19 23.5L14 18L9 23.5L2 27L14 2Z" fill="#1d4ed8" stroke="#3b82f6" stroke-width="1.8" stroke-linejoin="round"/>
+                    <path d="M14 7L21 21L14 17.5L7 21L14 7Z" fill="#060a14" stroke="#93c5fd" stroke-width="1.6" stroke-linejoin="round"/>
+                    <circle cx="14" cy="12" r="1.5" fill="#38bdf8"/>
+                </svg>
+            </div>
+            <div class="mini-card-title">2. Stealth Delta</div>
+            <div class="mini-card-sub">Aerospace &amp; Aviation</div>
+            <div class="mini-card-desc">Supersonic stealth wing vector. Emphasizes aerospace flight systems and forward momentum.</div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="mini-card" onclick="selectConcept(2)" id="card-2">
+            <div class="emblem-wrapper" style="width: 64px; height: 64px; margin-bottom: 0;">
+                <svg width="34" height="38" viewBox="0 0 28 32" fill="none">
+                    <path d="M14 1L26 6V15C26 23 19.5 28.5 14 31C8.5 28.5 2 23 2 15V6L14 1Z" fill="#1d4ed8" stroke="#3b82f6" stroke-width="1.8"/>
+                    <!-- Precision "M" & "D" -->
+                    <path d="M7 21V11L14 16L21 11V21" stroke="#93c5fd" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <line x1="7" y1="21" x2="21" y2="21" stroke="#38bdf8" stroke-width="1.8" stroke-linecap="round"/>
+                </svg>
+            </div>
+            <div class="mini-card-title">3. Monogram MD Aegis</div>
+            <div class="mini-card-sub">Executive Defense Prime</div>
+            <div class="mini-card-desc">Geometric 'M' &amp; 'D' monogram housed within the protective aegis crest.</div>
+        </div>
+
+        <!-- Card 4 -->
+        <div class="mini-card" onclick="selectConcept(3)" id="card-3">
+            <div class="emblem-wrapper" style="width: 64px; height: 64px; margin-bottom: 0;">
+                <svg width="34" height="38" viewBox="0 0 28 32" fill="none">
+                    <polygon points="14,2 26,8 26,22 14,28 2,22 2,8" fill="#1d4ed8" stroke="#3b82f6" stroke-width="1.8" stroke-linejoin="round"/>
+                    <circle cx="14" cy="15" r="6.5" stroke="#93c5fd" stroke-width="1.4" stroke-dasharray="2 2"/>
+                    <line x1="14" y1="5" x2="14" y2="9" stroke="#38bdf8" stroke-width="1.8" stroke-linecap="round"/>
+                    <line x1="14" y1="21" x2="14" y2="25" stroke="#38bdf8" stroke-width="1.8" stroke-linecap="round"/>
+                    <line x1="4" y1="15" x2="8" y2="15" stroke="#38bdf8" stroke-width="1.8" stroke-linecap="round"/>
+                    <line x1="20" y1="15" x2="24" y2="15" stroke="#38bdf8" stroke-width="1.8" stroke-linecap="round"/>
+                    <circle cx="14" cy="15" r="2.2" fill="#38bdf8"/>
+                </svg>
+            </div>
+            <div class="mini-card-title">4. Tactical Hex-Lock</div>
+            <div class="mini-card-sub">Hardware &amp; Fasteners</div>
+            <div class="mini-card-desc">Milled precision defense fastener with targeting crosshairs. High-durability MIL-SPEC feel.</div>
+        </div>
+
+        <!-- Card 5 -->
+        <div class="mini-card" onclick="selectConcept(4)" id="card-4">
+            <div class="emblem-wrapper" style="width: 64px; height: 64px; margin-bottom: 0;">
+                <svg width="34" height="38" viewBox="0 0 28 32" fill="none">
+                    <path d="M7 13L14 8L21 13L14 10.5Z" fill="#93c5fd" stroke="#bfdbfe" stroke-width="1.4"/>
+                    <path d="M6 19L14 13L22 19L14 16Z" fill="#3b82f6" stroke="#93c5fd" stroke-width="1.4"/>
+                    <path d="M5 25L14 18L23 25L14 21.5Z" fill="#1d4ed8" stroke="#3b82f6" stroke-width="1.4"/>
+                    <line x1="14" y1="5" x2="14" y2="29" stroke="rgba(56, 189, 248, 0.45)" stroke-width="1.2" stroke-dasharray="2 2"/>
+                </svg>
+            </div>
+            <div class="mini-card-title">5. Triple Chevron</div>
+            <div class="mini-card-sub">Military Rank &amp; Supply</div>
+            <div class="mini-card-desc">Ascending aerospace chevrons symbolizing rapid supply escalation and Naval flight logistics.</div>
+        </div>
+
+    </div>
+
+    <a href="index.html" class="back-link">← Back to Main Website</a>
+
+    <script>
+        const concepts = [
+            {
+                badge: "CONCEPT 1 • DEFENSE SHIELD (CURRENT)",
+                desc: "The classic DoD protective crest with twin down-pointing tactical chevrons. Authoritative, protective, and unmistakably defense-grade.",
+                svg: `<svg width="42" height="48" viewBox="0 0 28 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M14 1L26 6V15C26 23 19.5 28.5 14 31C8.5 28.5 2 23 2 15V6L14 1Z" fill="url(#sGrad)" stroke="#3b82f6" stroke-width="1.8"/>
+                    <path d="M8 12L14 17L20 12M8 17L14 22L20 17" stroke="#93c5fd" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <defs>
+                        <linearGradient id="sGrad" x1="14" y1="0" x2="14" y2="31" gradientUnits="userSpaceOnUse">
+                            <stop stop-color="#2563eb"/>
+                            <stop offset="1" stop-color="#0a101d"/>
+                        </linearGradient>
+                    </defs>
+                </svg>`
+            },
+            {
+                badge: "CONCEPT 2 • STEALTH DELTA (AEROSPACE)",
+                desc: "An angular stealth flight vector pointing forward and upward. Directly communicates aerospace defense contracts, aircraft hardware, and precision engineering.",
+                svg: `<svg width="42" height="48" viewBox="0 0 28 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M14 2L26 27L19 23.5L14 18L9 23.5L2 27L14 2Z" fill="url(#dGrad)" stroke="#3b82f6" stroke-width="1.8" stroke-linejoin="round"/>
+                    <path d="M14 7L21 21L14 17.5L7 21L14 7Z" fill="#060a14" stroke="#93c5fd" stroke-width="1.6" stroke-linejoin="round"/>
+                    <circle cx="14" cy="12" r="1.5" fill="#38bdf8"/>
+                    <defs>
+                        <linearGradient id="dGrad" x1="14" y1="2" x2="14" y2="27" gradientUnits="userSpaceOnUse">
+                            <stop stop-color="#2563eb"/>
+                            <stop offset="1" stop-color="#0a101d"/>
+                        </linearGradient>
+                    </defs>
+                </svg>`
+            },
+            {
+                badge: "CONCEPT 3 • MONOGRAM MD AEGIS",
+                desc: "A stylized military 'M' and foundation crossbar engineered directly into the shield. Gives Mahoning Defense a proprietary corporate signature like Raytheon or General Dynamics.",
+                svg: `<svg width="42" height="48" viewBox="0 0 28 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M14 1L26 6V15C26 23 19.5 28.5 14 31C8.5 28.5 2 23 2 15V6L14 1Z" fill="url(#mGrad)" stroke="#3b82f6" stroke-width="1.8"/>
+                    <path d="M7 21V11L14 16L21 11V21" stroke="#93c5fd" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <line x1="7" y1="21" x2="21" y2="21" stroke="#38bdf8" stroke-width="1.8" stroke-linecap="round"/>
+                    <defs>
+                        <linearGradient id="mGrad" x1="14" y1="0" x2="14" y2="31" gradientUnits="userSpaceOnUse">
+                            <stop stop-color="#2563eb"/>
+                            <stop offset="1" stop-color="#0a101d"/>
+                        </linearGradient>
+                    </defs>
+                </svg>`
+            },
+            {
+                badge: "CONCEPT 4 • TACTICAL HEX-LOCK",
+                desc: "A high-tolerance machined hex fastener with central targeting crosshairs. Immediately represents mechanical defense hardware, fasteners, and precision military supply chains.",
+                svg: `<svg width="42" height="48" viewBox="0 0 28 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <polygon points="14,2 26,8 26,22 14,28 2,22 2,8" fill="url(#hGrad)" stroke="#3b82f6" stroke-width="1.8" stroke-linejoin="round"/>
+                    <circle cx="14" cy="15" r="6.5" stroke="#93c5fd" stroke-width="1.4" stroke-dasharray="2 2"/>
+                    <line x1="14" y1="5" x2="14" y2="9" stroke="#38bdf8" stroke-width="1.8" stroke-linecap="round"/>
+                    <line x1="14" y1="21" x2="14" y2="25" stroke="#38bdf8" stroke-width="1.8" stroke-linecap="round"/>
+                    <line x1="4" y1="15" x2="8" y2="15" stroke="#38bdf8" stroke-width="1.8" stroke-linecap="round"/>
+                    <line x1="20" y1="15" x2="24" y2="15" stroke="#38bdf8" stroke-width="1.8" stroke-linecap="round"/>
+                    <circle cx="14" cy="15" r="2.2" fill="#38bdf8"/>
+                    <defs>
+                        <linearGradient id="hGrad" x1="14" y1="2" x2="14" y2="28" gradientUnits="userSpaceOnUse">
+                            <stop stop-color="#2563eb"/>
+                            <stop offset="1" stop-color="#0a101d"/>
+                        </linearGradient>
+                    </defs>
+                </svg>`
+            },
+            {
+                badge: "CONCEPT 5 • TRIPLE CHEVRON",
+                desc: "Three layered aerospace chevrons pointing skyward, inspired by Naval aviation logistics and military rank insignia. Suggests escalation, speed, and defense readiness.",
+                svg: `<svg width="42" height="48" viewBox="0 0 28 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M7 13L14 8L21 13L14 10.5Z" fill="#93c5fd" stroke="#bfdbfe" stroke-width="1.4"/>
+                    <path d="M6 19L14 13L22 19L14 16Z" fill="#3b82f6" stroke="#93c5fd" stroke-width="1.4"/>
+                    <path d="M5 25L14 18L23 25L14 21.5Z" fill="#1d4ed8" stroke="#3b82f6" stroke-width="1.4"/>
+                    <line x1="14" y1="5" x2="14" y2="29" stroke="rgba(56, 189, 248, 0.45)" stroke-width="1.2" stroke-dasharray="2 2"/>
+                </svg>`
+            }
+        ];
+
+        function selectConcept(index) {
+            const c = concepts[index];
+            document.getElementById('mainEmblemSvg').innerHTML = c.svg;
+            document.getElementById('conceptBadge').innerText = c.badge;
+            document.getElementById('conceptDesc').innerText = c.desc;
+
+            // Update tab styles
+            document.querySelectorAll('.tab-btn').forEach((btn, i) => {
+                btn.classList.toggle('active', i === index);
+            });
+
+            // Update mini-card styles
+            document.querySelectorAll('.mini-card').forEach((card, i) => {
+                card.classList.toggle('active', i === index);
+            });
+        }
+
+        // Initialize with concept 0
+        selectConcept(0);
+    </script>
+</body>
+</html>
