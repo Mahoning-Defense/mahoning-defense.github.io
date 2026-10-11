@@ -305,6 +305,10 @@
             transition: all 0.2s;
             box-shadow: 0 4px 14px rgba(37, 99, 235, 0.4);
             user-select: none;
+            cursor: pointer;
+            border: none;
+            font-family: inherit;
+            width: 100%;
         }
 
         .email-btn:hover {
@@ -326,6 +330,7 @@
             color: var(--primary-light);
             text-decoration: none;
             font-weight: 600;
+            cursor: pointer;
         }
 
         .contact-link:hover {
@@ -344,6 +349,227 @@
             display: flex;
             flex-direction: column;
             gap: 3px;
+        }
+
+        /* Foolproof Email Modal */
+        .modal-backdrop {
+            position: fixed;
+            inset: 0;
+            background: rgba(4, 7, 15, 0.78);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 16px;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.2s ease;
+        }
+
+        .modal-backdrop.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .email-modal {
+            width: 100%;
+            max-width: 440px;
+            background: rgba(12, 19, 34, 0.96);
+            border: 1px solid var(--border-subtle);
+            border-radius: 22px;
+            padding: 24px;
+            box-shadow: 
+                0 25px 60px rgba(0, 0, 0, 0.9),
+                0 0 35px rgba(37, 99, 235, 0.25);
+            transform: scale(0.95);
+            transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+            text-align: left;
+            position: relative;
+        }
+
+        .modal-backdrop.active .email-modal {
+            transform: scale(1);
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 16px;
+        }
+
+        .modal-title-group h2 {
+            font-size: 1.15rem;
+            font-weight: 800;
+            color: #ffffff;
+            margin: 0 0 4px 0;
+            line-height: 1.2;
+        }
+
+        .modal-title-group p {
+            font-family: var(--font-mono);
+            font-size: 0.78rem;
+            color: var(--accent-cyan);
+            margin: 0;
+            font-weight: 600;
+        }
+
+        .modal-close-btn {
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid var(--border-subtle);
+            color: var(--text-muted);
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-size: 1.1rem;
+            line-height: 1;
+            transition: all 0.2s;
+            flex-shrink: 0;
+        }
+
+        .modal-close-btn:hover {
+            background: rgba(255, 255, 255, 0.15);
+            color: #ffffff;
+            border-color: rgba(255, 255, 255, 0.3);
+        }
+
+        .modal-desc {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            margin-bottom: 16px;
+        }
+
+        .modal-options-list {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .modal-option {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            padding: 13px 16px;
+            background: rgba(17, 26, 46, 0.85);
+            border: 1px solid var(--border-subtle);
+            border-radius: 14px;
+            text-decoration: none;
+            color: #ffffff;
+            cursor: pointer;
+            transition: all 0.2s;
+            position: relative;
+            font-family: inherit;
+            width: 100%;
+            text-align: left;
+        }
+
+        .modal-option:hover {
+            background: rgba(37, 99, 235, 0.18);
+            border-color: rgba(59, 130, 246, 0.5);
+            transform: translateY(-1px);
+        }
+
+        .modal-option-icon {
+            width: 38px;
+            height: 38px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .icon-gmail {
+            background: rgba(239, 68, 68, 0.14);
+            color: #f87171;
+            border: 1px solid rgba(239, 68, 68, 0.3);
+        }
+
+        .icon-default {
+            background: rgba(59, 130, 246, 0.14);
+            color: #60a5fa;
+            border: 1px solid rgba(59, 130, 246, 0.3);
+        }
+
+        .icon-copy {
+            background: rgba(16, 185, 129, 0.14);
+            color: #34d399;
+            border: 1px solid rgba(16, 185, 129, 0.3);
+        }
+
+        .modal-option-text {
+            flex-grow: 1;
+        }
+
+        .modal-option-title {
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 2px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .modal-badge-rec {
+            font-size: 0.62rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            padding: 2px 7px;
+            border-radius: 9999px;
+            background: rgba(37, 99, 235, 0.25);
+            color: #93c5fd;
+            border: 1px solid rgba(59, 130, 246, 0.4);
+        }
+
+        .modal-option-sub {
+            font-size: 0.72rem;
+            color: var(--text-muted);
+        }
+
+        .modal-arrow {
+            color: var(--text-dim);
+            font-size: 0.9rem;
+            transition: transform 0.2s;
+        }
+
+        .modal-option:hover .modal-arrow {
+            color: #ffffff;
+            transform: translateX(3px);
+        }
+
+        /* Floating Toast Notification */
+        .toast-notify {
+            position: fixed;
+            bottom: 24px;
+            left: 50%;
+            transform: translateX(-50%) translateY(40px);
+            background: rgba(12, 19, 34, 0.96);
+            border: 1px solid var(--accent-emerald);
+            color: #34d399;
+            padding: 10px 20px;
+            border-radius: 9999px;
+            font-size: 0.82rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6), 0 0 20px rgba(16, 185, 129, 0.25);
+            opacity: 0;
+            pointer-events: none;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            z-index: 2000;
+        }
+
+        .toast-notify.show {
+            transform: translateX(-50%) translateY(0);
+            opacity: 1;
         }
     </style>
 </head>
@@ -395,10 +621,10 @@
                 <div class="contact-box">
                     <div class="contact-box-title">Procurement &amp; Solicitations Desk</div>
                     
-                    <a href="mailto:michele.mcdonald@mahoningdefense.com" class="email-btn">
+                    <button type="button" class="email-btn" id="contactBtn" aria-haspopup="dialog" aria-expanded="false">
                         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
                         Contact Michele McDonald
-                    </a>
+                    </button>
 
                     <div class="secondary-contacts">
                         <span>Direct: <a href="mailto:michele.mcdonald@mahoningdefense.com" class="contact-link">michele.mcdonald@mahoningdefense.com</a></span>
@@ -418,8 +644,173 @@
         </div>
     </div>
 
-    <!-- Active Zoom Prevention Script -->
+    <!-- Foolproof Contact Options Modal -->
+    <div class="modal-backdrop" id="emailModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+        <div class="email-modal">
+            <div class="modal-header">
+                <div class="modal-title-group">
+                    <h2 id="modalTitle">Contact Procurement Desk</h2>
+                    <p id="modalEmailTarget">michele.mcdonald@mahoningdefense.com</p>
+                </div>
+                <button type="button" class="modal-close-btn" id="closeModalBtn" aria-label="Close dialog">&times;</button>
+            </div>
+            
+            <div class="modal-desc">Select how you would like to compose your inquiry:</div>
+
+            <div class="modal-options-list">
+                <!-- 1. Open in Gmail (Browser) -->
+                <a href="https://mail.google.com/mail/?view=cm&fs=1&to=michele.mcdonald@mahoningdefense.com&su=Procurement%20Inquiry%20-%20Mahoning%20Defense%20Supply" target="_blank" rel="noopener noreferrer" class="modal-option" id="gmailOption">
+                    <div class="modal-option-icon icon-gmail">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                        </svg>
+                    </div>
+                    <div class="modal-option-text">
+                        <div class="modal-option-title">
+                            Open in Gmail (Web)
+                            <span class="modal-badge-rec">Recommended</span>
+                        </div>
+                        <div class="modal-option-sub">Opens compose window in a new tab</div>
+                    </div>
+                    <div class="modal-arrow">→</div>
+                </a>
+
+                <!-- 2. Default Desktop / Phone Email App -->
+                <a href="mailto:michele.mcdonald@mahoningdefense.com?subject=Procurement%20Inquiry%20-%20Mahoning%20Defense%20Supply" class="modal-option" id="defaultMailOption">
+                    <div class="modal-option-icon icon-default">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/>
+                            <line x1="8" y1="21" x2="16" y2="21"/>
+                            <line x1="12" y1="17" x2="12" y2="21"/>
+                        </svg>
+                    </div>
+                    <div class="modal-option-text">
+                        <div class="modal-option-title">Default Email App</div>
+                        <div class="modal-option-sub">Outlook, Apple Mail, or phone app</div>
+                    </div>
+                    <div class="modal-arrow">→</div>
+                </a>
+
+                <!-- 3. Copy Address to Clipboard -->
+                <button type="button" class="modal-option" id="copyModalBtn">
+                    <div class="modal-option-icon icon-copy">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                            <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                        </svg>
+                    </div>
+                    <div class="modal-option-text">
+                        <div class="modal-option-title" id="copyTitle">Copy Email Address</div>
+                        <div class="modal-option-sub">Copy address to your clipboard</div>
+                    </div>
+                    <div class="modal-arrow">📋</div>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Floating Toast Notification -->
+    <div class="toast-notify" id="toastNotify">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+        <span id="toastMsg">Email copied to clipboard!</span>
+    </div>
+
+    <!-- Active Zoom Prevention & Foolproof Modal Script -->
     <script>
+        // Copy to clipboard helper
+        function copyText(text, successMsg) {
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+                navigator.clipboard.writeText(text).then(function() {
+                    showToast(successMsg || ('Copied: ' + text));
+                }).catch(function() {
+                    fallbackCopy(text, successMsg);
+                });
+            } else {
+                fallbackCopy(text, successMsg);
+            }
+        }
+
+        function fallbackCopy(text, successMsg) {
+            var textArea = document.createElement("textarea");
+            textArea.value = text;
+            textArea.style.position = "fixed";
+            textArea.style.left = "-9999px";
+            document.body.appendChild(textArea);
+            textArea.focus();
+            textArea.select();
+            try {
+                document.execCommand('copy');
+                showToast(successMsg || ('Copied: ' + text));
+            } catch (err) {}
+            document.body.removeChild(textArea);
+        }
+
+        function showToast(msg) {
+            var toast = document.getElementById('toastNotify');
+            var msgEl = document.getElementById('toastMsg');
+            if (toast && msgEl) {
+                msgEl.textContent = msg;
+                toast.classList.add('show');
+                clearTimeout(window._toastTimer);
+                window._toastTimer = setTimeout(function() {
+                    toast.classList.remove('show');
+                }, 3000);
+            }
+        }
+
+        // Modal Controls
+        var contactBtn = document.getElementById('contactBtn');
+        var emailModal = document.getElementById('emailModal');
+        var closeModalBtn = document.getElementById('closeModalBtn');
+        var copyModalBtn = document.getElementById('copyModalBtn');
+
+        function openModal() {
+            if (emailModal) {
+                emailModal.classList.add('active');
+                if (contactBtn) contactBtn.setAttribute('aria-expanded', 'true');
+            }
+        }
+
+        function closeModal() {
+            if (emailModal) {
+                emailModal.classList.remove('active');
+                if (contactBtn) contactBtn.setAttribute('aria-expanded', 'false');
+            }
+        }
+
+        if (contactBtn) {
+            contactBtn.addEventListener('click', openModal);
+        }
+
+        if (closeModalBtn) {
+            closeModalBtn.addEventListener('click', closeModal);
+        }
+
+        if (emailModal) {
+            emailModal.addEventListener('click', function(e) {
+                if (e.target === emailModal) closeModal();
+            });
+        }
+
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' || e.keyCode === 27) closeModal();
+        });
+
+        if (copyModalBtn) {
+            copyModalBtn.addEventListener('click', function() {
+                copyText('michele.mcdonald@mahoningdefense.com', 'Copied: michele.mcdonald@mahoningdefense.com');
+                closeModal();
+            });
+        }
+
+        // Secondary contact links: copy to clipboard with toast
+        document.querySelectorAll('.contact-link').forEach(function(link) {
+            link.addEventListener('click', function(e) {
+                var email = this.textContent.trim();
+                copyText(email, 'Copied: ' + email);
+            });
+        });
+
         // Prevent Ctrl + Wheel / Trackpad pinch zoom
         window.addEventListener('wheel', function (e) {
             if (e.ctrlKey || e.metaKey) {
