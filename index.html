@@ -141,7 +141,17 @@
                 max-height: 100%;
                 border-radius: 0;
                 border: none;
-                padding: 24px 20px;
+                padding: 24px 16px;
+            }
+            .contact-box {
+                padding: 18px 14px;
+            }
+            .secondary-contacts {
+                flex-direction: column;
+                gap: 6px;
+            }
+            .secondary-contacts .sep-dot {
+                display: none;
             }
         }
 
@@ -325,6 +335,8 @@
             gap: 12px;
             font-size: 0.78rem;
             color: var(--text-muted);
+            flex-wrap: wrap;
+            text-align: center;
         }
 
         .contact-link {
@@ -332,6 +344,7 @@
             text-decoration: none;
             font-weight: 600;
             cursor: pointer;
+            word-break: break-word;
         }
 
         .contact-link:hover {
@@ -629,7 +642,7 @@
 
                     <div class="secondary-contacts">
                         <span>Direct: <a href="mailto:michele.mcdonald@mahoningdefense.com" class="contact-link">michele.mcdonald@mahoningdefense.com</a></span>
-                        <span>•</span>
+                        <span class="sep-dot">•</span>
                         <span>RFQs: <a href="mailto:rfq@mahoningdefense.com" class="contact-link">rfq@mahoningdefense.com</a></span>
                     </div>
                 </div>
