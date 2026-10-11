@@ -287,11 +287,12 @@
         }
 
         .splash-desc {
-            font-size: 0.98rem;
+            font-size: 0.95rem;
             color: var(--text-muted);
-            line-height: 1.6;
-            margin-bottom: 20px;
-            max-width: 550px;
+            line-height: 1.55;
+            margin-bottom: 18px;
+            max-width: 500px;
+            text-wrap: balance;
         }
 
         /* Core Capability Pillars */
@@ -394,29 +395,33 @@
             font-size: 0.68rem;
             color: var(--text-dim);
             flex-shrink: 0;
-            padding-top: 12px;
+            padding-top: 14px;
             border-top: 1px solid var(--border-subtle);
             display: flex;
             flex-direction: column;
-            gap: 3px;
+            gap: 6px;
         }
 
         .compliance-row {
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 6px 10px;
+            gap: 8px 12px;
             flex-wrap: wrap;
-            font-size: 0.68rem;
+            font-size: 0.67rem;
             font-weight: 600;
             color: #94a3b8;
-            margin-bottom: 5px;
             letter-spacing: 0.02em;
         }
 
         .compliance-sep {
             color: var(--text-dim);
-            opacity: 0.5;
+            opacity: 0.4;
+        }
+
+        .copyright-line {
+            color: var(--text-dim);
+            font-size: 0.64rem;
         }
 
         /* Foolproof Email Modal */
@@ -740,7 +745,7 @@
 
                 <!-- Clean Description -->
                 <p class="splash-desc">
-                    Our government procurement portal and defense hardware supply operations are currently being configured for production rollout.
+                    Our government procurement portal and defense hardware supply operations are currently being configured for production&nbsp;rollout.
                 </p>
 
                 <!-- Core Capabilities Strip -->
@@ -769,14 +774,13 @@
             <!-- FOOTER -->
             <footer class="footer">
                 <div class="compliance-row">
-                    <span>Small Business Set-Aside Eligible</span>
+                    <span>Small Business Set-Aside</span>
                     <span class="compliance-sep">•</span>
-                    <span>Domestic &amp; BAA Compliant Sourcing</span>
+                    <span>BAA Compliant</span>
                     <span class="compliance-sep">•</span>
-                    <span>FAR / DFARS Protocols</span>
+                    <span>FAR / DFARS</span>
                 </div>
-                <div>© 2026 Mahoning Defense Supply LLC. All Rights Reserved.</div>
-                <div>Campbell, OH 44405 • Sourcing &amp; Procurement Operations</div>
+                <div class="copyright-line">© 2026 Mahoning Defense Supply LLC • Campbell, OH</div>
             </footer>
 
         </div>
