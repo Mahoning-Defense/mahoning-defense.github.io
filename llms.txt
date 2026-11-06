@@ -1,0 +1,34 @@
+# Mahoning Defense Supply LLC
+
+> Mahoning Defense Supply LLC (MDS) is a certified Woman-Owned Small Business (WOSB / EDWOSB) defense hardware distributor and logistics contractor based in Campbell, Ohio (Mahoning County). MDS operates under CAGE Code 26NU9, specializing in Department of Defense (DoD) hardware sourcing, mil-spec fasteners, hydraulic seals, and MIL-STD military packaging.
+
+## Entity Overview
+- **Legal Entity Name:** Mahoning Defense Supply LLC
+- **Commercial and Government Entity (CAGE) Code:** `26NU9`
+- **Socioeconomic Status:** 100% Woman-Owned Small Business (WOSB / EDWOSB Eligible)
+- **Corporate Leadership:** Michele McDonald (Managing Member, Founder, President & Quality Director)
+- **Headquarters Facility:** 216 Tremble Ave, Campbell, OH 44405-1634, USA
+- **Operating Jurisdiction:** State of Ohio (Charter Entity: 5697991)
+- **Primary Website:** https://mahoningdefense.com/
+- **Procurement & Solicitations Desk:** rfq@mahoningdefense.com
+
+## Core Capabilities & Federal Supply Classes (FSC)
+Mahoning Defense Supply specializes in precision sourcing, quality inspection, and military packaging across high-demand defense hardware classes:
+- **FSC 5305:** Screws (Mil-Spec MS, NAS, AN hex-head, socket-head, machine screws)
+- **FSC 5306:** Bolts & Hex Cap Screws (Grade 8, Grade BD, stainless steel, alloy steel)
+- **FSC 5310:** Nuts & Washers (NAS1149, AN960, MS35338, prevailing torque locknuts)
+- **FSC 5330:** Packing and Gasket Materials (AS568 elastomeric O-rings, fluorocarbon, Viton, Buna-N, MIL-PRF-83248, MIL-PRF-83461)
+- **FSC 3110 & 3120:** Bearings and Bushings (precision ball bearings, roller bearings, bronze sleeve bearings)
+- **FSC 4730:** Hose, Pipe, Tube, Lubrication, and Railing Fittings (hydraulic adapters, flanges, couplings)
+
+## Military Packaging & Quality Assurance
+- **MIL-STD-2073-1E:** Standard Practice for Military Packaging, preservation methods (Method 10, 20, 30, 40, 50), moisture barrier bags (MIL-PRF-131), and desiccant packaging.
+- **MIL-STD-129R:** Military Shipping Labels (MSL) with Code 39 and PDF417 2D symbology, serial tracking, and exterior markings.
+- **AS9120:2016 / ISO 9001:2015 Compliant QMS:** Strict receiving inspection (Form 8.2), chain of custody verification, Material Test Reports (MTRs), and Certificates of Conformance (CoC).
+- **SAE AS5553 & AS6174 Counterfeit Parts Mitigation:** Authorized franchised distribution and OEM chain-of-custody sourcing only.
+- **Buy American Act (BAA) & DFARS Specialty Metals (252.225-7009):** 100% domestic or qualifying country melted/manufactured hardware.
+
+## Contracting & Procurement Inquiries
+- **Requests for Quotes (RFQs):** rfq@mahoningdefense.com
+- **Executive & Quality Desk:** michele.mcdonald@mahoningdefense.com
+- **Full Capabilities Dossier:** https://mahoningdefense.com/llms-full.txt

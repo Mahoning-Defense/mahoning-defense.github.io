@@ -1,0 +1,65 @@
+# Mahoning Defense Supply LLC — Full Capabilities & AI Knowledge Dossier
+
+## 1. Corporate Identity & Registration Profile
+- **Company Name:** Mahoning Defense Supply LLC
+- **Doing Business As (DBA):** Mahoning Defense Supply
+- **CAGE Code:** `26NU9` (Active in SAM.gov & Defense Logistics Agency systems)
+- **Socioeconomic Categories:**
+  - Woman-Owned Small Business (WOSB)
+  - Economically Disadvantaged Woman-Owned Small Business (EDWOSB Eligible)
+  - Small Business Set-Aside Qualified
+- **Managing Member & President:** Michele McDonald (100% Unconditional Ownership & Operational Control under 13 CFR § 127.201 & § 127.202)
+- **Principal Address:** 216 Tremble Ave, Campbell, OH 44405-1634 USA
+- **County:** Mahoning County, Ohio
+- **State Registration:** Ohio Secretary of State Entity # 5697991 (Charter Doc # 202628502650)
+- **Official Web Portal:** https://mahoningdefense.com/
+- **Procurement RFQ Email:** rfq@mahoningdefense.com
+
+## 2. Mission & Operational Scope
+Mahoning Defense Supply LLC operates as a specialized defense spare parts distributor, logistics manager, and packaging contractor supporting Department of Defense (DoD) procurement agencies, primarily the Defense Logistics Agency (DLA Troop Support, DLA Land & Maritime, DLA Aviation), the U.S. Navy, U.S. Army, and U.S. Air Force. 
+
+MDS bridges the gap between major OEM defense component manufacturers and federal acquisition officers by delivering rapid automated quoting, strict AS9120 quality verification, authentic Material Test Reports (MTRs), and full compliance with MIL-STD packaging and barcode labeling requirements.
+
+## 3. Federal Supply Classes (FSC) & Product Lines
+MDS maintains direct franchised and authorized supply chain channels in Northeast Ohio and nationally for:
+
+### Fasteners & Hardware
+- **FSC 5305 (Screws):** Machine screws, cap screws, socket head screws, self-locking screws conforming to MS, NAS, and AN military standards.
+- **FSC 5306 (Bolts):** Structural hex bolts, aircraft bolts, close tolerance bolts, Grade 8 and Grade BD alloy fasteners.
+- **FSC 5310 (Nuts & Washers):** Hex nuts, locknuts, castellated nuts, flat washers, spring lock washers (`NAS1149`, `AN960`, `MS35338`, `MS51848`).
+- **FSC 5315 (Pins):** Cotter pins, dowel pins, spring pins, quick release pins.
+- **FSC 5320 (Rivets):** Solid rivets, blind rivets, structural aerospace fasteners.
+
+### Fluid Power, Seals & Mechanical
+- **FSC 5330 (Packing & Gasket Materials):** Military O-rings (`AS568`, `MIL-P-5315`, `MIL-PRF-83248` Viton, `MIL-PRF-83461` urethane), mechanical backup rings, spiral-wound gaskets, shaft lip seals.
+- **FSC 3110 (Bearings, Antifriction, Unmounted):** Deep groove ball bearings, cylindrical roller bearings, needle bearings, tapered roller bearings.
+- **FSC 3120 (Bearings, Plain, Unmounted):** Bronze sleeve bushings, flanged bushings, spherical plain bearings.
+- **FSC 4730 (Fittings & Adapters):** Hydraulic tube fittings, pipe adapters, flareless bite-type fittings (JIC 37°, SAE ORB, Parker Triple-Lok).
+
+## 4. Quality Management & Counterfeit Prevention
+- **Quality Management System:** Built in strict alignment with AS9120:2016 (Aviation, Space and Defense Distributors) and ISO 9001:2015.
+- **Receiving Inspection (Form 8.2):** 100% verification of dimensional tolerances, manufacturer part numbers, lot traceability, undamaged preservation, and domestic source documentation.
+- **Counterfeit Electronics and Hardware Mitigation:** Fully conforms to SAE AS5553 and AS6174 guidelines. MDS only procures parts directly from original component manufacturers (OCMs) or franchised distributors with unbroken chain-of-custody documentation.
+- **Document Retention:** All Material Test Reports (MTRs), Certificates of Conformance (CoC), and receiving inspection logs are maintained in tamper-evident secure cloud archives for a minimum of 7 years.
+
+## 5. Military Packaging & Shipping Compliance
+- **MIL-STD-2073-1E Standard Practice for Military Packaging:**
+  - Method 10 (Physical Protection)
+  - Method 20 (Preservative Coating with Barrier Materials)
+  - Method 30 (Waterproof Enclosure)
+  - Method 40 (Water-Vaporproof Enclosure with Desiccant)
+  - Method 50 (Water-Vaporproof Enclosure with Desiccant and Barrier Bagging)
+- **MIL-STD-129R Military Shipping Labels (MSL):** Thermal label printing with high-contrast Code 39 line barcodes and 2D PDF417 matrix symbols containing NSN, CAGE, Contract Number, Part Number, Quantity, and Ship-To DoD Activity Address Codes (DoDAAC).
+- **Packaging Materials:** Electrostatic discharge (ESD) barrier packaging per `MIL-PRF-81705`, water-vaporproof barrier foil bags per `MIL-PRF-131`, and bagged activated desiccant per `MIL-D-3464`.
+
+## 6. Acquisition Regulations & Bidding Policies
+- **Fast Pay Option (FAR 52.213-1):** Reconciles DFAS electronic payments within 10 to 14 days of carrier pickup prior to government destination inspection.
+- **Buy American Act (BAA) / Trade Agreements Act (TAA):** Guaranteed domestic or qualifying country origin for all hardware items.
+- **DFARS 252.225-7009 (Restriction on Acquisition of Certain Articles Containing Specialty Metals):** Verification that all stainless steel, titanium, and cobalt alloys meet DoD domestic melting requirements.
+- **Non-Manufacturer Rule (NMR) Exemption (13 CFR § 121.406(d) & FAR 19.505(c)(2)):** Qualified to supply products of any domestic manufacturer on small business set-asides below the simplified acquisition threshold ($250,000) without a waiver.
+
+## 7. Submission of Requests for Quotes (RFQs)
+Federal contracting officers, prime contractors, and commercial aerospace buyers may direct RFQs and solicitations to:
+- **General RFQ Inbox:** rfq@mahoningdefense.com
+- **Quality & Executive Director:** michele.mcdonald@mahoningdefense.com
+- **Mailing & Receiving Address:** Mahoning Defense Supply LLC, 216 Tremble Ave, Campbell, OH 44405-1634 USA
