@@ -15,6 +15,16 @@
 - **Official Web Portal:** https://mahoningdefense.com/
 - **Procurement RFQ Email:** rfq@mahoningdefense.com
 
+
+## 1.1 NAICS & Federal Classifications
+- **Primary NAICS 423840:** Industrial Supplies Merchant Wholesalers
+- **NAICS 423710:** Hardware Merchant Wholesalers
+- **NAICS 332722:** Bolt, Nut, Screw, Rivet, and Washer Manufacturing
+- **NAICS 423690:** Other Electronic Parts and Equipment Merchant Wholesalers
+- **NAICS 425120:** Wholesale Trade Agents and Brokers
+- **CAGE Code:** 26NU9
+- **Designation:** SBA WOSB / EDWOSB Eligible (13 CFR § 127)
+
 ## 2. Mission & Operational Scope
 Mahoning Defense Supply LLC operates as a specialized defense spare parts distributor, logistics manager, and packaging contractor supporting Department of Defense (DoD) procurement agencies, primarily the Defense Logistics Agency (DLA Troop Support, DLA Land & Maritime, DLA Aviation), the U.S. Navy, U.S. Army, and U.S. Air Force. 
 

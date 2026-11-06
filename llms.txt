@@ -3,6 +3,17 @@
 > Mahoning Defense Supply LLC (MDS) is a certified Woman-Owned Small Business (WOSB / EDWOSB) defense hardware distributor and logistics contractor based in Campbell, Ohio (Mahoning County). MDS operates under CAGE Code 26NU9, specializing in Department of Defense (DoD) hardware sourcing, mil-spec fasteners, hydraulic seals, and MIL-STD military packaging.
 
 ## Entity Overview
+## Federal Classification & Registrations
+- **CAGE Code:** 26NU9
+- **Socioeconomic Designation:** Certified Woman-Owned Small Business (WOSB / EDWOSB Eligible)
+- **Primary NAICS Codes:**
+  - 423840 - Industrial Supplies Merchant Wholesalers (Primary)
+  - 423710 - Hardware Merchant Wholesalers
+  - 332722 - Bolt, Nut, Screw, Rivet, and Washer Manufacturing
+  - 423690 - Other Electronic Parts and Equipment Merchant Wholesalers
+  - 425120 - Wholesale Trade Agents and Brokers
+- **Core Offerings:** Military hardware distribution, mil-spec fasteners (MS, NAS, AN), elastomeric seals and O-rings, fluid power fittings, precision bearings, and MIL-STD-2073 / MIL-STD-129 military packaging.
+
 - **Legal Entity Name:** Mahoning Defense Supply LLC
 - **Commercial and Government Entity (CAGE) Code:** `26NU9`
 - **Socioeconomic Status:** 100% Woman-Owned Small Business (WOSB / EDWOSB Eligible)
